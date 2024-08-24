@@ -1,12 +1,18 @@
+import ContactItem from "./ContactItem";
+
 function ContactsList({ contacts }) {
   return (
     <div>
       <h3>Contacts List</h3>
-      <ul>
-        {contacts.map((contact) => (
-          <li key={contact.id}></li>
-        ))}
-      </ul>
+      {contacts.length ? (
+        <ul>
+          {contacts.map((contact) => (
+            <ContactItem key={contact.id} data={contact} />
+          ))}
+        </ul>
+      ) : (
+        <p>No Contacts!</p>
+      )}
     </div>
   );
 }
