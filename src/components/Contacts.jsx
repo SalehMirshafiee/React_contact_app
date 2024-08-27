@@ -3,6 +3,8 @@ import ContactsList from "./ContactsList";
 import inputs from "../constants/inputs.js";
 import { v4 } from "uuid";
 
+import styles from "./Contacts.module.css";
+
 function Contacts() {
   const [contacts, setContacts] = useState([]);
   const [alert, setAlert] = useState("");
@@ -20,6 +22,8 @@ function Contacts() {
 
     setContact((contact) => ({ ...contact, [name]: value }));
   };
+
+  const enterKeyHandler = (event) => event.key === "Enter" && addHandler();
 
   const addHandler = () => {
     if (
@@ -48,10 +52,11 @@ function Contacts() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.form}>
         {inputs.map((input, index) => (
           <input
+            onKeyUp={enterKeyHandler}
             key={index}
             type={input.type}
             placeholder={input.placeholder}
@@ -63,7 +68,7 @@ function Contacts() {
 
         <button onClick={addHandler}>Add Contact</button>
       </div>
-      <div>{alert && <p>{alert}</p>}</div>
+      <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
       <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   );

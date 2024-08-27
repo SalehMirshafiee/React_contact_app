@@ -7,7 +7,7 @@ function Header() {
       <div className={styles.container}>
         <h1>Contact App</h1>
         <p>
-          <a href="../../index.html">icon</a> | WE SAVE YOUR NUMBERS, YOU DONT
+          <a href="../../index.html">🗒️</a> | WE SAVE YOUR NUMBERS, YOU DONT
           HAVE TO USE YOUR BRAIN!
         </p>
       </div>
